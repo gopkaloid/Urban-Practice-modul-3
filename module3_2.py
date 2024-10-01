@@ -1,6 +1,7 @@
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
     if not any(domain in recipient for domain in ("com", "ru", "net")) or \
-            not any(domain in sender for domain in ("com", "ru", "net")):
+            not any(domain in sender for domain in ("com", "ru", "net")) or \
+            '@' not in recipient or '@' not in sender:
         print("Невозможно отправить письмо с адреса <%s> на адрес <%s>" % (sender, recipient))
         return
 
